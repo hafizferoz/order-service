@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "766b121d-aa8d-4bba-ae48-1d2fa40f3d7f",
+		"name": "logger_poc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1675939"
+	},
+	"item": [
+		{
+			"name": "bookOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"order\":{\r\n\t\t\"id\":103,\r\n\t\t\"name\":\"Mobile\",\r\n\t\t\"qty\":1,\r\n\t\t\"price\":8000\r\n\t\t\r\n\t},\r\n\t\"payment\":{}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9192/order/bookOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9192",
+					"path": [
+						"order",
+						"bookOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "payment",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paymentId\": 1,\r\n    \"transactionId\": \"d86cfeca-0b26-455e-a1a2-ac3e53707829\",\r\n    \"orderId\": 103,\r\n    \"paymentStatus\": \"SUCCESS\",\r\n    \"amount\":4000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/payment/26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"payment",
+						"26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doPayment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paymentStatus\":\"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/payment/doPayment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"payment",
+						"doPayment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
